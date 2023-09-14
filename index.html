@@ -2,9 +2,12 @@
 <html>
 <body>
 
-<div id="demo">
-  <h2>Let AJAX change this text</h2>
-  <button type="button" onclick="helloworld()">Change Content</button>
+<h2>Click button</h2>
+<button type="button" onclick="helloworld()">I am button</button>
+<br>
+<br>
+<div id="response">
+  
 </div>
 
 <script>
@@ -12,10 +15,10 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("demo").innerHTML = this.responseText;
+                document.getElementById("response").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "hello.php?q=", true);
+        xmlhttp.open("GET", "hello.php", true);
         xmlhttp.send();
     }
     </script>
