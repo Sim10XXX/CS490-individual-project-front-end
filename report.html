@@ -11,16 +11,11 @@
         <li><a href="report.html">Report</a></li>
       </ul> 
 <br>
-<button type="button" class="button1" onclick="request(1, 'test')">List of Movies - Top 5 rented movies</button>
-<br>
-<br>
-<button type="button" class="button1" onclick="request(3)">List of Actors - Top 5 actors by # of films</button>
 
+<button type="button" class="button1" onclick="request(5)">Download Customer Report</button>
 
 <div id="response">
-</div>
-
-<div id="subresponse">
+  
 </div>
 
 <script>
@@ -29,17 +24,6 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("response").innerHTML = this.responseText;
-                document.getElementById("subresponse").innerHTML = '';
-            }
-        };
-        xmlhttp.open("GET", "request.php?q="+id+"&v="+val, true);
-        xmlhttp.send();
-    }
-    function subrequest(id, val) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("subresponse").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET", "request.php?q="+id+"&v="+val, true);
