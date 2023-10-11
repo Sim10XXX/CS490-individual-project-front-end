@@ -14,12 +14,13 @@
 
 
 <form>
-    Search movies by title or actor name: <input type="text" onkeyup="request(6, this.value)">
+    Search movies by title or actor name: <input type="text" name = "search" id = "search" onkeyup="request(6, search.value)">
 </form>
 
 <form>
     Select genre:
-    <select id="genre">
+    <select id="genre" onchange="request(6, search.value);">
+        <option value = "Any" hidden disabled selected value> -- select an option -- </option>
         <option value="Any">Any</option>
         <option value="Action">Action</option>
         <option value="Animation">Animation</option>
