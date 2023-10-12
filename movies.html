@@ -55,7 +55,12 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("response").innerHTML = this.responseText;
+                if (id == 12)
+                    document.getElementById("customersubresponse").innerHTML = this.responseText;
+                else if (id == 13)
+                    document.getElementById("staffsubresponse").innerHTML = this.responseText;
+                else
+                    document.getElementById("response").innerHTML = this.responseText;
             }
         };
         var g = document.getElementById("genre").value;

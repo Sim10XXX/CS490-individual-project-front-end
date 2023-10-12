@@ -23,13 +23,19 @@
 <div id="subresponse">
 </div>
 
+<div id="movieresponse">
+</div>
+
 <script>
     function request(id, val) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("response").innerHTML = this.responseText;
-                document.getElementById("subresponse").innerHTML = '';
+                document.getElementById("movieresponse").innerHTML = '<br>';
+                if (id == 1){
+                    document.getElementById("subresponse").innerHTML = '<br>';
+                }
             }
         };
         xmlhttp.open("GET", "request.php?q="+id+"&v="+val, true);
@@ -39,7 +45,15 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("subresponse").innerHTML = this.responseText;
+                if (id == 2){
+                    document.getElementById("movieresponse").innerHTML = this.responseText;
+                }
+                else{
+                    if (id == 4){
+                        document.getElementById("movieresponse").innerHTML = '<br>';
+                    }
+                    document.getElementById("subresponse").innerHTML = this.responseText;
+                }
             }
         };
         xmlhttp.open("GET", "request.php?q="+id+"&v="+val, true);
